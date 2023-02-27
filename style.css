@@ -1,0 +1,77 @@
+* {
+    text-align: center;
+    background-color: tan;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    border-style: solid;
+    border-color: #ffcc66;
+    border-width: 5px;
+    font-size: 34px;
+    font-weight: bolder;
+} 
+
+.rules {
+    padding: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: max-content;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.scoreboard {
+    max-width: max-content;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: solid;
+    border-color: #ffcc66;
+    border-width: 5px;
+}
+
+#score-heading {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.scores {
+    margin: 20px;
+}
+
+#playerScore, #computerScore {
+    font-weight: bold;
+}
+
+.player-selection {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin: 30px;
+}
+
+.label {
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 20px;
+}
+
+.results {
+    margin: 30px;
+}
+
+#roundResult {
+    font-size: 20px;
+}
+
+#gameResult {
+    margin: 20px;
+    font-size: 24px;
+    font-weight: bold;
+}

@@ -1,73 +1,55 @@
-console.log("How about a game of Rock, Paper, Scissors? First to 5, wins!");
-console.log("-----------------------------------------------------------");
-
 const choices = ["rock", "paper", "scissors"];
-const playerWin = "You win this round!";
-const computerWin = "You lost this round.";
-const draw = "It's a tie this round.";
+const imgs = document.querySelectorAll('img');
+
 let playerScore = 0;
 let computerScore = 0;
 
-//Gets computer choice
+imgs.forEach ((image) =>
+    image.addEventListener('click', () => {
+        if (playerScore >= 5 || computerScore >= 5) {
+            return;
+        }
+        playRound(image.dataset.img);
+    })
+);
+
 function getComputerChoice() { 
     const computerRandom = Math.floor((Math.random() * choices.length));
     const computerSelection = choices[computerRandom];
     return(computerSelection);    
 } 
 
-//Prompts & gets player choice
-function getPlayerSelection() { 
-    let playerSelection = prompt("Rock, paper, or scissors?").toLowerCase();
-    if (choices.includes(playerSelection)) {
-        return(playerSelection);
-    } else {
-        playerSelection = prompt("That's not a valid selection. Check your spelling!")
-        .toLowerCase();
-        return(playerSelection);
-    }
-}
-                                                                                                                                                                                
-//Plays 1 round of RPS & alerts outcome
-function playRound() { 
+function scoreKeep() {
+    const playerScore_div = document.getElementById('playerScore');
+    const computerScore_div = document.getElementById('computerScore');
+    playerScore_div.textContent = `${playerScore}`;
+    computerScore_div.textContent = `${computerScore}`; 
+} 
+
+function playRound(playerSelection) {
+    const roundResult_div = document.getElementById('roundResult');
+    const gameResult_div = document.getElementById('gameResult');
     const computerSelection = getComputerChoice();
-    const playerSelection = getPlayerSelection();
-    console.log("I picked " + computerSelection + " and you picked " + playerSelection + ".");
+
     if (playerSelection === computerSelection) {
-        roundResult = draw;
-    } else if 
-    ((playerSelection == 'rock' && computerSelection == 'scissors') || 
+        roundResult_div.textContent = ("It's a draw! We both chose " + playerSelection + "!");
+    } else if (
+    (playerSelection == 'rock' && computerSelection == 'scissors') || 
     (playerSelection == 'paper' && computerSelection == 'rock') ||
     (playerSelection == 'scissors' && computerSelection == 'paper')) {
         playerScore += 1;
-        roundResult = playerWin;
+        roundResult_div.textContent = ("You won! You chose " + playerSelection 
+        + " and I chose " + computerSelection + ".");
+        if (playerScore >= 5) {
+            gameResult_div.textContent = ("You got lucky and won the game this time. I demand a rematch!");
+        }
     } else {
         computerScore += 1;
-        roundResult = computerWin;
-    }   
-    return(roundResult);
+        roundResult_div.textContent = ("You lost! You chose " + playerSelection 
+        + " and I chose " + computerSelection + ".");
+        if (computerScore >= 5) {
+            gameResult_div.textContent = ("Game over! Better luck next time. Reload the page for a rematch.");
+        }
+    } 
+    scoreKeep();
 }
-//Plays 5 rounds of RPS
-function game() {
-    for (let i = 0; i < 999; i++) {
-        playRound();
-        console.log(roundResult);
-        console.log("The current score is: ");
-        console.log("Your score: " + playerScore);
-        console.log("My score: " + computerScore);
-        console.log("-----------------------------------------------------------");
-        if (playerScore === 5 || computerScore === 5) {
-            break;
-        }     
-    }
-}
-function winGame() {
-    if (playerScore === 5) {
-        console.log("You won this game! Congratulations!");
-    } else { (computerScore === 5)
-        console.log("I won this game. Better luck next time.");
-    }
-}
-game();
-winGame();
-
-

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1><div class="title">ROCK PAPER SCISSORS</div></h1>
+    <div class="rules">
+        <p>First to 5 points wins! <br> Choose wisely.</p>
+    </div>
+    <div class="scoreboard"><p id="score-heading">Scoreboard</p>
+        <div class="scores">
+            <span>Player Score: <span id="playerScore">0</span></span><br>
+            <span>Computer Score: <span id="computerScore">0</span></span>
+        </div>
+    </div>
+    <div class="player-selection">
+        <div class="choices">
+            <img src="./img/rock.png" alt="Rock" id="rock" data-img="rock">
+            <div class="label">Rock</div>
+        </div>
+        <div class="choices">
+            <img src="./img/paper.png" alt="Paper" id="paper" data-img="paper">
+        <div class="label">Paper</div>
+        </div>
+        <div class="choices">
+            <img src="./img/scissors.png" alt="Scissors" id="scissors" data-img="scissors">
+            <div class="label">Scissors</div>
+        </div>
+    </div>
+    <div class="results">
+        <div id="roundResult"></div>
+        <div id="gameResult"></div>
+    </div>
+</body>
+<footer>
+    <span>Created by laumt9</span>
+    <span id="divider">|</span>
+    <a href="https://github.com/laumt9"><img id="github" src="./img/github.svg" alt="Github Logo"></a>
+</footer>
+<script src="script.js"></script>
+</html>

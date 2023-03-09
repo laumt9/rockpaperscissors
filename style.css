@@ -3,6 +3,11 @@
     background-color: tan;
 }
 
+body {
+    position: relative;
+    min-height: 100vh;
+}
+
 .title {
     display: flex;
     justify-content: center;
